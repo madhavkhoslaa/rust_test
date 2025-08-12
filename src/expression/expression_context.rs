@@ -65,6 +65,8 @@ impl ExpressionContext {
     }
 
     pub async fn eval(&self, ast: &ExpressionAST) -> Result<f64, Box<dyn Error>> {
+        // Reason why I have do is to avoid Pinning ast because recursive AST requires pinning of the type
+        // to avoid race conditions while async recursive tasks are executed.
         self.eval_sync(ast)
     }
 }
