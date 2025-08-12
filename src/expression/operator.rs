@@ -1,7 +1,8 @@
+#[derive(Debug, Clone)]
 pub enum Operator {
-    ADD,
-    SUB,
+    Add,
+    Subtract,
     MUL,
     DIV,
     VAL(f64),
-} 
+}
